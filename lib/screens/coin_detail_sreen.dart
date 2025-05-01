@@ -1,7 +1,7 @@
 // lib/screens/coin_detail_screen.dart
 
 import 'package:flutter/material.dart';
-import '../services/coingecko_service.dart';
+import 'package:invest_track/models/coin.model.dart';
 
 class CoinDetailScreen extends StatelessWidget {
   final Coin coin;

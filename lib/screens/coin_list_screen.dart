@@ -1,8 +1,7 @@
-// lib/screens/coin_list_screen.dart
-
 import 'package:flutter/material.dart';
-import 'package:invest_track/screens/coin_detail_sreen.dart';
-import '../services/coingecko_service.dart';
+import 'package:invest_track/models/coin.model.dart';
+import 'package:invest_track/services/coingecko_service.dart';
+import 'package:invest_track/widgets/coin_card.dart';
 
 class CoinListScreen extends StatefulWidget {
   const CoinListScreen({super.key});
@@ -17,6 +16,10 @@ class _CoinListScreenState extends State<CoinListScreen> {
   int _currentPage = 1;
   bool _loading = false;
   bool _hasMore = true;
+
+  // Cores personalizáveis para o botão "Carregar Mais"
+  final Color _loadMoreButtonBackgroundColor = Colors.blue; // Cor de fundo padrão
+  final Color _loadMoreButtonTextColor = Colors.white; // Cor do texto padrão
 
   @override
   void initState() {
@@ -45,7 +48,6 @@ class _CoinListScreenState extends State<CoinListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Top Criptos')),
       body: Column(
         children: [
           Expanded(
@@ -53,23 +55,7 @@ class _CoinListScreenState extends State<CoinListScreen> {
               itemCount: _coins.length,
               itemBuilder: (context, index) {
                 final coin = _coins[index];
-                return ListTile(
-                  leading: Image.network(coin.image, width: 32, height: 32),
-                  title: Text('${coin.name} (${coin.symbol.toUpperCase()})'),
-                  subtitle: Text('\$${coin.currentPrice.toStringAsFixed(2)}'),
-                  trailing: Text(
-                    '${coin.priceChangePercentage24h.toStringAsFixed(2)}%',
-                    style: TextStyle(
-                      color: coin.priceChangePercentage24h >= 0 ? Colors.green : Colors.red,
-                    ),
-                  ),
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => CoinDetailScreen(coin: coin),
-                    ),
-                  ),
-                );
+                return CoinCard(coin: coin);
               },
             ),
           ),
@@ -81,9 +67,18 @@ class _CoinListScreenState extends State<CoinListScreen> {
           else if (_hasMore)
             Padding(
               padding: const EdgeInsets.all(12),
-              child: ElevatedButton(
+              child: TextButton(
                 onPressed: _loadMoreCoins,
-                child: const Text('Carregar mais'),
+                style: TextButton.styleFrom(
+                  backgroundColor: _loadMoreButtonBackgroundColor, // Usa a cor de fundo personalizável
+                  foregroundColor: _loadMoreButtonTextColor, // Usa a cor do texto personalizável
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  elevation: 4,
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                ),
+                child: const Text("Carregar Mais", style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
               ),
             ),
         ],
