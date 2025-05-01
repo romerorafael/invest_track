@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "505301507872",
+    "project_id": "investtrack-1c1c4",
+    "storage_bucket": "investtrack-1c1c4.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505301507872:android:6f3f86dcb05b0737ff8145",
+        "android_client_info": {
+          "package_name": "com.app.invest_track"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505301507872-63eks9vfhhi0vu6ihig1g69qqv4rh7pc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.invest_track",
+            "certificate_hash": "24df46c56177c190683f03641e445a8817637451"
+          }
+        },
+        {
+          "client_id": "505301507872-up5bct0qp8uig9e3t3hl48pe1hlgj70m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAO5cLA_XWFHSL51sp-9jOS2FOW6k_OYdU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505301507872-up5bct0qp8uig9e3t3hl48pe1hlgj70m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "505301507872-ct805chi1nln37492ph84pghladjgbnf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.investTrack"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
